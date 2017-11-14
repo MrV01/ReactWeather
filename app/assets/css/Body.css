@@ -1,0 +1,23 @@
+body {
+  background: #f9fbfb;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 30px;
+}
+
+.sample__paragraph {
+  color: yellow;
+  background-color: blue;
+}
+
+.sample__paragraph--border-wide{
+  border: 10px;
+  padding: 20px;
+}
+
+.color__red {
+    background-color: bonewhite;
+    border-style: double;
+    border-color: red;
+}
