@@ -9,16 +9,13 @@ const  PORT = process.env.PORT || 3000;
 //  Forward https traffic to http, Using express midlleware
 //  parameters:  ( request, response, what to do next )
 app.use( function (req, res, next) {
-    if(req.headers['x-forwarded-proto'] === 'http') {
+    if(req.headers['x-forwarded-proto'] === 'https') {
+      // redirect to HTTP listener.
+      res.redirect("http://" + req.hostname + req.url);
+    } else {
       next();      // nothing to do , call next()
-    } else {  // redirect to HTTP listener.
-      if(req.hostname === "localhost") {
-          next();
-      } else {
-          res.redirect("http://" + req.hostname + req.url);
-      }
     }
-});
+  });
 
 app.use(express.static('dist'));
 
