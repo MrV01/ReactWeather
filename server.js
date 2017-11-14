@@ -12,7 +12,11 @@ app.use( function (req, res, next) {
     if(req.headers['x-forwarded-proto'] === 'http') {
       next();      // nothing to do , call next()
     } else {  // redirect to HTTP listener.
-      res.redirect('http://' + req.hostname + req.url);
+      if(req.hostname === "localhost") {
+          next();
+      } else {
+          res.redirect("http://" + req.hostname + req.url);
+      }
     }
 });
 
