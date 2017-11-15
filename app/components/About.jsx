@@ -15,7 +15,10 @@ var React = require('react');
 ///
 var About = (props) => {
     return (
-      <h3>About Component</h3>
+      <dev>
+        <h3>About Component!</h3>
+        <p>Lorem ipsum   Refactor can be done When: Stateless functional component.  It  Only define method "render" AND does not keep "state"</p>
+      </dev>
     )
   };
 
