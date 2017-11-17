@@ -1,0 +1,11 @@
+/*  Import Foundation
+     Attention!  change webpack.config.js file to load .scss files
+                        by using SASS loader chain.
+      [SASS Loader](https://github.com/webpack-contrib/sass-loader)
+                        npm install sass-loader node-sass webpack --save-dev
+      Important Note:  Foundation .scss files contain SASS code.
+
+*/
+//  SASS Foundation  file
+@import "../node_modules/foundation-sites/scss/foundation.scss";
+@include foundation-everything;

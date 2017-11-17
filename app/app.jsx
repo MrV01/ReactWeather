@@ -8,8 +8,16 @@ var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
 
-// Import CSS stylesheets
-import './app.css';
+// Import PostCSS SCSS stylesheets from static files.
+import './app.pscss';
+// Load Foundation framework into  SASS stylesheets bundle.
+//  ( according to  Foundation site.)
+import './app.scss';
+// Or inject Foundation into app.jsx  JS bundle using style-loader   npm module
+// require('style-loader!css-loader!foundation-sites/dist/foundation.min.css');
+
+// Fire up Foundation, using jQuery module loaded by webpack.
+$(document).foundation();
 
 ReactDOM.render(
   <Router history={hashHistory}>
