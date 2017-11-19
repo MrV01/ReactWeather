@@ -1,6 +1,7 @@
 /// Features: ( can be changed in 'Loaders' section)
 ///  1.  Files   ''\.(css|sass)$''     SASS  based CSS workflow.
-///  2.  Files
+///  2.  CSS Files SASS and PostCSS generates into  separate bundles
+//
 // node's native package 'path'
 // https://nodejs.org/api/path.html
 const path = require('path');
@@ -43,7 +44,9 @@ const paths = {
 // Webpack configuration
 const config =  {
   entry:[
+    //Jquery file from NODE_MODULES
     'script-loader!jquery/dist/jquery.min.js',
+
     'script-loader!foundation-sites/dist/foundation.min.js',
     path.join(paths.JS, 'app.jsx')
   ],
@@ -91,6 +94,7 @@ const config =  {
       // CSS PostCSS will be extracted to this  object representing the bundle file
       extractPostCSS,
       //  Using embedded webpack plugin to pack jQuery
+      // What id does? automatically "require" module jquery in application modules
       // alias for the module  :  module name
       new webpack.ProvidePlugin({
         '$': 'jquery',
