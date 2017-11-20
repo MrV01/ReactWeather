@@ -28,7 +28,7 @@ var Main = (props) => {
       <Nav/>
       {/* Including  Legacy Float Grid */}
       <div className="row">
-        {/* medium screen = 6 columns out of 12, large =3 /12 , small = centered */}
+        {/* medium screen = 6 columns out of 12, large =3 /12 , small = centered , takes 12/12 coumns */}
         <div className="columns medium-6 large-4 small-centered">
           {props.children}
         </div>
