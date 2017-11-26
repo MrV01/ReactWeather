@@ -11,7 +11,7 @@ module.exports = {
   getTemp: function (location)  {
       var encodedLocation=encodeURIComponent(location);
       // console.log(location, encodedLocation);
-      var errorMessage = "Not Found or unknown...";
+      var errorMessage = "Loaction Not Found or unknown...";
       var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
       // Call  Axios library. It returns Promise . And this function forwards it to the caller
       return axios.get(requestUrl).then( function (res) { // success

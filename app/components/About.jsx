@@ -24,10 +24,9 @@ var About = (props) => {
             <a className="hollow button" href= "https://foundation.zurb.com/sites">Foundation Sites</a>
             <a className="hollow button" href= "https://github.com/">GitHub repository</a>
         </div>
-        <footer>
-          <h3>Demo application</h3>
-          <p>Copyright material</p>
-        </footer>
+        <div className="clearfix">
+           <p>Copyright material</p>
+        </div>
 
       </div>
     )
