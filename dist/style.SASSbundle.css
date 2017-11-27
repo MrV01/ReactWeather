@@ -3439,3 +3439,16 @@ table.hover tr:nth-of-type(even):hover {
 
 .clearfix:after {
   clear: both; }
+/*
+  From section 7 . Lecture 59
+  Custom styles for the app.jsx
+*/
+/* Add class to
+    Weather.jsx => render => return <h1 className=" page-title" */
+.page-title {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem; }
+
+/* Styling NO shadows in ALL input elements with type = search*/
+input[type=search] {
+  box-shadow: none; }
