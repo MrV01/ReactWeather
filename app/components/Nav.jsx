@@ -19,7 +19,13 @@ var {Link, IndexLink} = require('react-router');
 var Nav = React.createClass( {
   onSearch: function(e) {
     e.preventDefault();
-    alert("Not yet connected");
+    var location =this.refs.search.value;
+     if( location.length > 0 ) {
+        // alert("Not yet connected, Search for: " + location);
+        var encodedLocation = encodeURIComponent(location);
+        this.refs.search.value = ''; // erase string from the input element
+        window.location.hash = '#/?location=' + encodedLocation ;
+    }
   },
   render: function() {
   // Corky things in JSX : Attributes conflicts.
@@ -46,7 +52,7 @@ var Nav = React.createClass( {
                 <form onSubmit={this.onSearch}>
                   <ul className="menu">
                     <li>
-                        <input type="search" placeholder="Search weather by city"/>
+                        <input type="search"  ref="search"  placeholder="Search weather by city"/>
                     </li>
                     <li>
                       <button type="submit" className="button" value="submit">Get Weather</button>

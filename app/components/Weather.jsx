@@ -23,7 +23,9 @@ var Weather = React.createClass({
     // Set state of AJAX data fetching.
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,   //  clean-up location state of the previous Search
+      temp: undefined       // clean-up temperature state  of the previous Search
     });
     // Run API function to fetch AJAX data.
     openWeatherMap.getTemp(location)
@@ -43,6 +45,29 @@ var Weather = React.createClass({
           // console.log("Error Message", e);
 
      });
+  },
+
+  componentDidMount: function() {
+      // Using React  Router.  There are this.props pre-set for us already.
+      // To extract location parameter from URI line.
+      // debugger;
+      var location = this.props.location.query.location;
+      if( location && location.length > 0)  {
+        this.handleSearch({location: location});
+        window.location.hash = '#/';  // Reset URI query string to a root of application
+      }
+
+  },
+
+  componentWillReceiveProps( newProps ) {
+    // Basically the same code as in componentDidMount()
+    //  the difference :  props are gettting from React event handler Before rendering completion.
+    //  instead of  this.props  ( in case of  search from other pages )
+    var location = newProps.location.query.location;
+      if( location && location.length > 0)  {
+      this.handleSearch({location: location});
+      window.location.hash = '#/';  // Reset URI query string to a root of application
+    }
   },
 
   render: function () {
