@@ -4,9 +4,13 @@
 */
 /* Add class to
     Weather.jsx => render => return <h1 className=" page-title" */
+$space-large: 2.5rem;
+$title-color: purple;
+
 .page-title {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  color: $title-color;
+  margin-top: $space-large;
+  margin-bottom: $space-large;
 }
 
 /* Styling NO shadows in ALL input elements with type = search*/

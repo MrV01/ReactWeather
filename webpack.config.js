@@ -78,7 +78,7 @@ const config =  {
         Examples: path.join(paths.COMPONENTS,'Examples.jsx'),
         openWeatherMap: path.join(paths.API,'openWeatherMap.jsx'),
         ErrorModal: path.join(paths.COMPONENTS,'ErrorModal.jsx'),
-        applicationStyles: path.join(paths.CUSTOMCSS,'app.css'),
+        applicationStyles: path.join(paths.CUSTOMCSS,'app.scss'),
       },
       extensions: ['*', '.js', '.jsx'],
       modules: [paths.NODE_MODULES]
