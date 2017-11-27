@@ -68,7 +68,7 @@ var Weather = React.createClass({
     // React Render
     return (
       <div>
-      <h1 className="text-center">Get Weather</h1>
+      <h1 className="text-center page-title">Get Weather</h1>
       {/* Callback function this.handleSearch  handles  new search requests, and set state of Weather component */}
       <WeatherForm onRefUpdate={this.handleSearch}/>
       {/* Conditional rendering function returns appropriate component (Fetching... or WeatherMessage) */}

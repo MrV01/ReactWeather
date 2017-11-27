@@ -25,7 +25,8 @@ const paths = {
   DIST: path.resolve(__dirname, 'dist'),
   SRC: path.resolve(__dirname, 'public'),
   JS: path.resolve(__dirname, 'app'),
-  CSS: path.resolve(__dirname, 'app/css'),
+  CUSTOMCSS: path.resolve(__dirname, 'app/styles'),
+  STATICCSS: path.resolve(__dirname, 'app/css'),
   COMPONENTS: path.resolve(__dirname, 'app/components'),
   API: path.resolve(__dirname, 'app/api'),
   NODE_MODULES: path.resolve(__dirname, 'node_modules'),
@@ -77,6 +78,7 @@ const config =  {
         Examples: path.join(paths.COMPONENTS,'Examples.jsx'),
         openWeatherMap: path.join(paths.API,'openWeatherMap.jsx'),
         ErrorModal: path.join(paths.COMPONENTS,'ErrorModal.jsx'),
+        applicationStyles: path.join(paths.CUSTOMCSS,'app.css'),
       },
       extensions: ['*', '.js', '.jsx'],
       modules: [paths.NODE_MODULES]

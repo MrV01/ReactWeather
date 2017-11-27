@@ -20,6 +20,10 @@ require('style-loader!foundation-sites/dist/foundation.min.css');
 // Fire up Foundation, using jQuery module loaded by webpack.
 $(document).foundation();
 
+//  Inject App custom css
+require('style-loader!applicationStyles');
+
+
 ReactDOM.render(
   <Router history={hashHistory}>
     {/*  history property  above instructs Router to enable Link feature */}
