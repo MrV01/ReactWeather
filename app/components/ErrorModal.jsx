@@ -9,6 +9,8 @@
 // therefore no "require(jquery)" is needed here.
 //
 var React = require('react');
+var ReactDOM = require('react-dom');   // to manipulate DOM ,  modal  in particular
+var ReactDOMServer = require('react-dom/server');  // to render JSX to HTML text form.
 
 var ErrorModal = React.createClass({
   // React Life cycle  function
@@ -25,19 +27,16 @@ var ErrorModal = React.createClass({
   // React Life Cycle function Which will run automatically
   //  After  the render finished and DOM has been updated.
   //  Then Foundation object is created, and modal open
-  //  Important:  modal.open()  also  modifies the DOM, and React
-  //  notices the inconsistency, then generating an error.
-  //
+  //  Important:  modal.open()  also  modifies the DOM in parallel ,
+  // And React notices inconsistency, then generating an error.
+  // Workaround is:  Render JSX of the Modal separately,
+  // after React finish rendering  of empty div
+
   componentDidMount: function () {
-     var modal = new Foundation.Reveal($('#error-modal'));   // definition of the modal
-     modal.open();  // show the modal.
-  },
-  //React render
-  render:  function () {
     // Pull the props of the component
     var {title,message} = this.props;
-    // JSX object to render by the engine
-    return (
+    // JSX object to be rendered  by ReactDOMServer engine
+      var modalMarkup = (
       <div id="error-modal" className=" reveal tiny text-center" data-reveal="">
           <h4>{title}</h4>
           <p>{message}</p>
@@ -46,6 +45,24 @@ var ErrorModal = React.createClass({
           </p>
       </div>
     );
+
+    //  Create copy of  rendered modal from JSX  to string format  using jQuery
+    var $modal = $(ReactDOMServer.renderToString(modalMarkup));
+    // Using jQuery convert string format to HTML
+    //  Then  hook ut to DOM using  ReactDOM.findDOMNode selector, and jQuery .html method
+    $(ReactDOM.findDOMNode(this)).html($modal);
+
+    var modal = new Foundation.Reveal($('#error-modal'));   // definition of the modal
+     modal.open();  // show the modal.
+  },
+  //React render .
+  render:  function () {
+    // JSX object to render by the engine .
+    //  In this case, empty <div> element to be parent of modal
+    // Cause jquery and Foundation will modify DOM after React render.
+    return (
+      <div></div>
+        );
   }
 });
 
